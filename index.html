@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Báo Tường Xuân 2026 - Đẳng Cấp Icon</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@1,700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-red: #8b0000;
+            --bright-red: #ff0000;
+            --gold: #ffd700;
+            --leaf-green: #2d5a27;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-red);
+            color: #fff;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle, #b30000 20%, #800000 100%);
+        }
+
+        /* --- HIỆU ỨNG PHÁO HOA --- */
+        .pyro > .before, .pyro > .after {
+            position: fixed; width: 5px; height: 5px; border-radius: 50%;
+            box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff; /* Code pháo hoa phức tạp ẩn đi để nhẹ web */
+            animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards;
+        }
+
+        /* --- HOA MAI & ĐÀO RƠI --- */
+        #flower-field {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 999;
+        }
+        .flower {
+            position: absolute; animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { top: -10%; transform: rotate(0deg) translateX(0); opacity: 1; }
+            100% { top: 100%; transform: rotate(360deg) translateX(50px); opacity: 0; }
+        }
+
+        /* --- HEADER XỊN XÒ --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 10px double var(--gold);
+            margin: 10px;
+            position: relative;
+        }
+
+        .header-decor { font-size: 3rem; margin-bottom: 20px; }
+        
+        header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem; color: var(--gold);
+            margin: 0; text-shadow: 3px 3px 10px #000;
+        }
+
+        .year-box {
+            background: var(--gold); color: var(--bg-red);
+            padding: 5px 30px; font-weight: bold; font-size: 2rem;
+            border-radius: 50px; margin: 20px 0;
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        /* --- BÁNH CHƯNG BẰNG CODE --- */
+        .banh-chung-css {
+            width: 120px; height: 120px;
+            background: var(--leaf-green);
+            margin: 20px auto;
+            border: 4px solid #1a3a17;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .banh-chung-css::before, .banh-chung-css::after {
+            content: ""; position: absolute; background: #f5f5dc;
+        }
+        /* Lạt buộc */
+        .banh-chung-css::before { width: 100%; height: 4px; top: 50%; left: 0; transform: translateY(-50%); }
+        .banh-chung-css::after { width: 4px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+
+        /* --- MENU --- */
+        nav {
+            position: sticky; top: 0; background: #600;
+            padding: 15px; text-align: center; z-index: 1000;
+            border-bottom: 3px solid var(--gold);
+        }
+        nav a {
+            color: var(--gold); text-decoration: none; margin: 0 10px;
+            font-weight: bold; font-size: 0.8rem; text-transform: uppercase;
+        }
+
+        /* --- NỘI DUNG --- */
+        .container { padding: 20px; max-width: 600px; margin: 0 auto; }
+        
+        .section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px; border: 2px solid var(--gold);
+            padding: 25px; margin-bottom: 40px;
+            position: relative; overflow: hidden;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold); text-align: center; font-style: italic;
+        }
+
+        .icon-list { list-style: none; padding: 0; }
+        .icon-list li {
+            margin-bottom: 15px; display: flex; align-items: center;
+            font-size: 1.1rem;
+        }
+        .icon-list span { font-size: 2rem; margin-right: 15px; }
+
+        /* --- BAO LÌ XÌ --- */
+        .lixi-area { display: flex; justify-content: space-around; margin-top: 30px; }
+        .lixi {
+            width: 80px; height: 130px; background: #d00;
+            border: 3px solid var(--gold); border-radius: 10px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; transition: 0.3s; animation: shake 2s infinite;
+        }
+        .lixi:active { transform: scale(0.8); }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* --- MODAL --- */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 10000;
+            justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: #fff; color: #b30000; padding: 40px; border-radius: 30px;
+            text-align: center; width: 85%; border: 5px solid var(--gold);
+        }
+
+        footer { text-align: center; padding: 40px; color: var(--gold); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div id="flower-field"></div>
+
+<header>
+    <div class="header-decor">✨ 🧧 ✨</div>
+    <h1>Chúc Mừng Năm Mới</h1>
+    <div class="year-box">XUÂN 2026</div>
+    <p>--- Vạn Sự Như Ý - An Khang Thịnh Vượng ---</p>
+    <div class="banh-chung-css"></div>
+    <div style="margin-top: 10px; color: var(--gold);">🍃 Bánh Chưng Xanh 🍃</div>
+</header>
+
+<nav>
+    <a href="#truyenthong">🏯 Truyền Thống</a>
+    <a href="#amthuc">🍲 Ẩm Thực</a>
+    <a href="#hailoc">🧧 Hái Lộc</a>
+</nav>
+
+<div class="container">
+    <section id="truyenthong" class="section">
+        <h2>🏯 Phong Tục Ngày Tết</h2>
+        <ul class="icon-list">
+            <li><span>🎍</span> <b>Cây Nêu:</b> Xua đuổi điềm xấu, cầu mong bình an.</li>
+            <li><span>🧹</span> <b>Dọn Nhà:</b> Quét sạch bụi bặm năm cũ, đón tài lộc.</li>
+            <li><span>👨‍👩‍👧‍👦</span> <b>Sum Họp:</b> Gia đình quây quần bên mâm cơm tất niên.</li>
+        </ul>
+    </section>
+
+    <section id="amthuc" class="section">
+        <h2>🍲 Hương Vị Xuân</h2>
+        <div style="text-align: center; font-size: 4rem;">🍱</div>
+        <ul class="icon-list">
+            <li><span>🥓</span> <b>Thịt Mỡ Dưa Hành:</b> Hương vị đậm đà truyền thống.</li>
+            <li><span>🍃</span> <b>Bánh Chưng:</b> Tượng trưng cho đất, lòng biết ơn.</li>
+            <li><span>🍊</span> <b>Mâm Ngũ Quả:</b> Cầu - Sung - Vừa - Đủ - Xài.</li>
+        </ul>
+    </section>
+
+    <section id="hailoc" class="section">
+        <h2>🧧 Hái Lộc Đầu Năm</h2>
+        <p style="text-align: center;">Chạm vào bao lì xì để xem quẻ xuân!</p>
+        <div class="lixi-area">
+            <div class="lixi" onclick="moLixi('Chúc bạn năm mới: Tiền vào như nước, sức khỏe dồi dào! 💰')">🧧</div>
+            <div class="lixi" onclick="moLixi('Chúc bạn năm mới: Vạn sự như ý, học hành tấn tới! 🎓')">🧧</div>
+            <div class="lixi" onclick="moLixi('Chúc bạn năm mới: Phát tài phát lộc, sớm có người yêu! ❤️')">🧧</div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>🏮 CHÚC THẦY LỘC NĂM MỚI VUI VẺ - TẾT 2026 🏮</p>
+</footer>
+
+<div id="locModal" class="modal">
+    <div class="modal-content">
+        <h2 style="font-family: 'Dancing Script'; font-size: 2.5rem;">🎉 Lộc Xuân 🎉</h2>
+        <p id="loichuc" style="font-size: 1.3rem; margin: 20px 0;"></p>
+        <button onclick="dong()" style="background: var(--bg-red); color: #fff; border: none; padding: 10px 30px; border-radius: 50px; font-weight: bold;">Cảm ơn! 🧧</button>
+    </div>
+</div>
+
+<script>
+    // Tạo hoa rơi (Mai & Đào)
+    const field = document.getElementById('flower-field');
+    const flowers = ['🌸', '🌼', '✨', '🧧'];
+
+    function createFlower() {
+        const f = document.createElement('div');
+        f.className = 'flower';
+        f.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+        f.style.left = Math.random() * 100 + 'vw';
+        f.style.fontSize = Math.random() * 20 + 15 + 'px';
+        f.style.animationDuration = Math.random() * 3 + 5 + 's';
+        field.appendChild(f);
+        setTimeout(() => f.remove(), 7000);
+    }
+    setInterval(createFlower, 400);
+
+    // Xử lý Lì Xì
+    const modal = document.getElementById('locModal');
+    const txt = document.getElementById('loichuc');
+
+    function moLixi(message) {
+        txt.innerText = message;
+        modal.style.display = 'flex';
+    }
+
+    function dong() {
+        modal.style.display = 'none';
+    }
+
+    // Đóng khi chạm ra ngoài
+    window.onclick = function(e) {
+        if(e.target == modal) dong();
+    }
+</script>
+
+</body>
+</html>
